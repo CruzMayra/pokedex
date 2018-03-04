@@ -14,10 +14,17 @@ body {
 }
 
 .pokemon-card {
-  margin: 2% 0%;
+  margin: 1% 0%;
+}
+
+.card-body {
+  background-color: #DA1E2D;
+  color: whitesmoke;
+  padding: 1% 0;
 }
 
 #pokemons-container > section > div > img{
-  width: 100%;
+  margin: 5% 0;
   height: 12em;
+  width: 100%;
 }
