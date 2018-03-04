@@ -1,0 +1,14 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('../assets/images/background.jpg');
+  background-repeat: repeat;
+}
+
+.search-pokemon {
+  padding: 4% 0;
+}
+
+.order-button {
+  background-color: #356ABC;
+  color: #FFCD00;
+}
