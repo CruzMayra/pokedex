@@ -12,3 +12,12 @@ body {
   background-color: #356ABC;
   color: #FFCD00;
 }
+
+.pokemon-card {
+  margin: 2% 0%;
+}
+
+#pokemons-container > section > div > img{
+  width: 100%;
+  height: 12em;
+}
