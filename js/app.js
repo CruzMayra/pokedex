@@ -1,4 +1,4 @@
-$(document).ready(getAllData);
+document.load = getAllData();
 
 const $filterInput = $('.filtered-pokemon');
 
@@ -14,6 +14,7 @@ function getAllData() {
     }).done(function(response) {
       let pokemonsData = ('Fetched Pokemons:', response.data.pokemons);
       localStorage.setItem('data-pokemon', JSON.stringify(pokemonsData));
+      getPokemonsData(localStorage.getItem('data-pokemon'))
       });
   } else {
     getPokemonsData(localStorage.getItem('data-pokemon'))
