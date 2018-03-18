@@ -1,3 +1,5 @@
+$(document).ready(paintPokemonCard);
+
 const $filterInput = $('.filtered-pokemon');
 
 $filterInput.keyup(filterPokemons);
@@ -11,7 +13,7 @@ if(!localStorage.getItem('data-pokemon')) {
   }).done(function(response) {
     let pokemonsData = ('Fetched Pokemons:', response.data.pokemons);
     localStorage.setItem('data-pokemon', JSON.stringify(pokemonsData));
-  });
+    });
 } else {
   getPokemonsData(localStorage.getItem('data-pokemon'))
 }
