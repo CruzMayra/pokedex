@@ -3,17 +3,17 @@ const $filterInput = $('.filtered-pokemon');
 $filterInput.keyup(filterPokemons);
 
 // función que busca la data y la 'cachea'
-if(!localStorage.getItem('data')) {
+if(!localStorage.getItem('data-pokemon')) {
   $.post({
     url: 'https://graphql-pokemon.now.sh/',
     data: JSON.stringify({ "query": " { pokemons(first: 151) { id name image height { maximum } weight { maximum } classification types resistant weaknesses } } " }),
     contentType: 'application/json'
   }).done(function(response) {
     let pokemonsData = ('Fetched Pokemons:', response.data.pokemons);
-    localStorage.setItem('data', JSON.stringify(pokemonsData));
+    localStorage.setItem('data-pokemon', JSON.stringify(pokemonsData));
   });
 } else {
-  getPokemonsData(localStorage.getItem('data'))
+  getPokemonsData(localStorage.getItem('data-pokemon'))
 }
 
 // función que obtiene la data 'cacheada'
@@ -45,7 +45,7 @@ function filterPokemons(){
   let searchPokemon = $filterInput.val().toLowerCase();
   $('#pokemons-container').empty();
   if($filterInput.val().trim().length > 0){
-    var filteredPokemons = JSON.parse(localStorage.getItem('data')).filter( pokemon => {
+    var filteredPokemons = JSON.parse(localStorage.getItem('data-pokemon')).filter( pokemon => {
       let nameMatch = pokemon.name.toLowerCase().indexOf(searchPokemon) >=0
       return nameMatch
     }).forEach(pokemon => {
@@ -54,7 +54,7 @@ function filterPokemons(){
     $('#pokemons-container:empty').html('<p class="h1">Lo sentimos, no encontramos coincidencias <i class="fa fa-frown-o" aria-hidden="true"></i></p>');
   } else {
     $('#pokemons-container').empty();
-    JSON.parse(localStorage.getItem('data')).forEach(pokemon => {
+    JSON.parse(localStorage.getItem('data-pokemon')).forEach(pokemon => {
       paintPokemonCard(pokemon)
     })
   }
@@ -63,7 +63,7 @@ function filterPokemons(){
 // función que crea los modales con los datos particulares del pokemon
 $('#pokemon-detail').on('show.bs.modal', function (event) {
   let card = $(event.relatedTarget) // Button that triggered the modal
-  let pokemon = JSON.parse(localStorage.getItem('data')).find( pokemon => {
+  let pokemon = JSON.parse(localStorage.getItem('data-pokemon')).find( pokemon => {
     return pokemon.id === card.data('id')
   })
   var modal = $(this)
