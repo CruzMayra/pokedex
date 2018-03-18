@@ -1,21 +1,23 @@
-$(document).ready(paintPokemonCard);
+$(document).ready(getAllData);
 
 const $filterInput = $('.filtered-pokemon');
 
 $filterInput.keyup(filterPokemons);
 
 // función que busca la data y la 'cachea'
-if(!localStorage.getItem('data-pokemon')) {
-  $.post({
-    url: 'https://graphql-pokemon.now.sh/',
-    data: JSON.stringify({ "query": " { pokemons(first: 151) { id name image height { maximum } weight { maximum } classification types resistant weaknesses } } " }),
-    contentType: 'application/json'
-  }).done(function(response) {
-    let pokemonsData = ('Fetched Pokemons:', response.data.pokemons);
-    localStorage.setItem('data-pokemon', JSON.stringify(pokemonsData));
-    });
-} else {
-  getPokemonsData(localStorage.getItem('data-pokemon'))
+function getAllData() {
+  if(!localStorage.getItem('data-pokemon')) {
+    $.post({
+      url: 'https://graphql-pokemon.now.sh/',
+      data: JSON.stringify({ "query": " { pokemons(first: 151) { id name image height { maximum } weight { maximum } classification types resistant weaknesses } } " }),
+      contentType: 'application/json'
+    }).done(function(response) {
+      let pokemonsData = ('Fetched Pokemons:', response.data.pokemons);
+      localStorage.setItem('data-pokemon', JSON.stringify(pokemonsData));
+      });
+  } else {
+    getPokemonsData(localStorage.getItem('data-pokemon'))
+  }
 }
 
 // función que obtiene la data 'cacheada'
