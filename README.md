@@ -7,6 +7,3 @@ Aplicación que emula la enciclopedia virtual que los entrenadores llevan consig
 
 ## Descripción
 Pokédex posee una interfaz sencilla que emula la interfaz de un videojuego. Utiliza una GraphQL API para obtener la data de todos los personajes en una sola consulta y obtener solo los datos que se necesitan.
-
-## Desarrollado para
-Laboratoria.
