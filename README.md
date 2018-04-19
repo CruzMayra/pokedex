@@ -1,7 +1,7 @@
 # Pokedex
 Aplicación que emula la enciclopedia virtual que los entrenadores llevan consigo en la serie, para consultar las fichas de las diversas especies Pokémon. 
 
- ![pokedex](https://user-images.githubusercontent.com/32860789/38184249-154e1c4a-360c-11e8-92da-256e256165ea.png)
+ ![pokedex-small](https://user-images.githubusercontent.com/32860789/39000061-b7f622bc-43b8-11e8-9419-287f19c1f3a4.JPG)
  
  ## Desarrollado para [Laboratoria](http://www.laboratoria.la/)
 
